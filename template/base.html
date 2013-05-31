@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="${ static_url('bootstrap/css/bootstrap.min.css') }" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="${ theme_url('css/site.css') }">
+    <%block name="head"/>
+    <title>${ _(title) } - ${ _("LuoYun.CO") }</title>
+  </head>
+
+  <body>
+    <script type="text/javascript" src="${ static_url('js/jquery-1.9.1.min.js') }"></script>
+    <script type="text/javascript" src="${ static_url('bootstrap/js/bootstrap.min.js') }"></script>
+    <script type="text/javascript" src="${ theme_url('js/site.js') }"></script>
+
+    <div id="pager">
+      <div id="header">
+		<div class="doc4 container-fluid">
+		  <div class="row-fluid">
+			<div class="span2"><a href="http://www.luoyun.co"><img class="site-logo" src="${ theme_url('img/site_logo.png') }"/></a></div>
+			<div class="span10">
+			  <select class="site-language-select">
+				% for L in supported_languages:
+				<option value="${ L.codename }" ${ b2s(L.codename == locale.code, 'selected="selected"') }>${ L.name }</option>
+				% endfor
+			  </select>
+
+			  <div class="site-account">
+				% if not current_user:
+				<a href="/login">${ _("Sign In") }</a>
+				<a href="/register">${ _("Register") }</a>
+				% else:
+				${ _("Welcome, ") } <a href="/account">${ current_user.username }</a>
+				<a href="/logout">${ _("Logout") }</a>
+				% if has_permission('admin'):
+				<a href="/admin">${ _("Administration") }</a>
+				% endif
+				% endif
+			  </div>
+			</div>
+
+			<div class="span4">
+			  <p>${ _("Cloud Computing For The Future") }</p>
+			</div>
+
+			<div class="span6 site-contact text-right">
+			  <i class="icon-comment"></i>
+			  ${ _("Contact US: ") } 022-58389682
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	  <div id="site-entry">
+		<div class="doc4 navbar container-fluid">
+		  <div class="navbar-inner">
+			<a class="brand" href="/">${ _("Home") }</a>
+			<ul class="nav">
+			  % for E in site_entries:
+              <li><a href="${ E.url }" ${ b2s( E.isnewopen, 'target="_blank"') }>${ E.name }</a></li>
+			  % endfor
+			</ul>
+          </div>
+		</div>
+	  </div>
+
+      <div id="main" class="doc4 container-fluid min-height600">
+        <%block name="main"/>
+      </div>
+
+	  <div id="footer">
+		<div class="doc4 container-fluid">
+		  <ul class="inline text-center">
+			<li><a href="/about">${ _("About US") }</a></li>
+			<li><a href="/contact">${ _("Contact US") }</a></li>
+		  </ul>
+		  <p>${ _("Copyright") }&nbsp;&copy&nbsp;2011-2013
+			<a href="http://www.luoyun.co">${ _("LuoYun.CO") }</a>
+		  </p>
+		</div>
+	  </div>
+
+	</div>
+
+	<script type="text/javascript">
+	  $(function () {
+          $.scrollUp({
+              scrollText: '',
+          });
+	  });
+	  binding_site_language_select();
+	</script>
+  </body>
+</html>

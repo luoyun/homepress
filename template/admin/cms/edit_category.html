@@ -1,0 +1,30 @@
+<%inherit file="base.html"/>
+
+<%block name="mainbody">
+
+<div>
+  <form method="POST">${ xsrf_form_html() }
+	<fieldset>
+	  <legend>${ _("Edit Category") }</legend>
+
+	  ${ form.parent.label } ${ form.parent() }
+	  ${ form.html_errors(form.parent.errors) }
+
+	  ${ form.name.label } ${ form.name() }
+	  ${ form.html_errors(form.name.errors) }
+
+	  ${ form.summary.label } ${ form.summary() }
+	  ${ form.html_errors(form.summary.errors) }
+	  <br>
+
+	  ${ form.description.label } ${ form.description() }
+	  ${ form.html_errors(form.description.errors) }
+	  <br>
+
+	  <button type="submit" class="btn">${ _("Submit") }</button>
+	</fieldset>
+  </form>
+
+</div>
+
+</%block>

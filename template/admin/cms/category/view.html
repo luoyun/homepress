@@ -1,0 +1,73 @@
+<%inherit file="../base.html"/>
+
+<%block name="mainbody">
+
+<div>
+  <h1>${ category.name }</h1>
+  <p>${ category.summary }</p>
+  <div>${ category.description }</div>
+
+  % if category.children:
+  <div>
+	<ul class="nav nav-list">
+	  % for item in category.children:
+	  <li><a href="${ reverse_url('admin:cms:category:view', item.id) }">${ item.name }</a></li>
+	  % endfor
+	</ul>
+  </div>
+  % endif
+
+  <p><a class="btn btn-primary" href="${ reverse_url('admin:cms:article:add') }?category=${ category.id }">${ _("Add Article") }</a></p>
+
+</div>
+
+% if category.articles:
+<table class="table table-hover" id="cms-article-list">
+  <thead>
+    <tr>
+	  <th></th>
+      <th>ID</th>
+      <th>${ _("Name") }</th>
+      <th>${ _("Position") }</th>
+      <th>${ _("Created") }</th>
+      <th>${ _("Updated") }</th>
+    </tr>
+  </thead>
+  <tbody>
+	% for item in category.articles:
+    <tr class="item" id="item${ item.id }">
+	  <td><input type="checkbox" name="checkbox" id="checkbox${ item.id }"></td>
+      <td class="item-id">${ item.id }</td>
+      <td>${ item.name }</td>
+      <td>${ item.position }</td>
+	  <td>${ ftime(item.created) }</td>
+	  <td>${ ftime(item.updated) }</td>
+    </tr>
+	% endfor
+  </tbody>
+</table>
+
+<div>
+  <div class="btn-group">
+	<a class="btn"><input type="checkbox" name="checkbox_all"></a>
+	<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+      <span class="caret"></span>
+	</a>
+	<ul class="dropdown-menu">
+	  <li><a href="" class="select-all">${ _("Select All") }</a></li>
+	  <li><a href="" class="unselect-all">${ _("Unselect All") }</a></li>
+	</ul>
+  </div>
+  <a href="" role="button" class="btn action-edit disabled"><i class="icon-pencil"></i> ${ _("Edit") }</a>
+  <a href="" role="button" class="btn action-delete disabled"><i class="icon-trash"></i> ${ _("Delete") }</a>
+</div>
+
+<script type="text/javascript" src="${ theme_url('js/admin/cms-article.js') }"></script>
+<script type="text/javascript">
+  binding_checkbox();
+  binding_action_edit();
+</script>
+% endif
+
+
+</%block>

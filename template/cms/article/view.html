@@ -1,0 +1,19 @@
+<%inherit file="../base.html"/>
+
+<%block name="mainbody">
+
+<ul class="breadcrumb">
+  <li><i class="icon-home"></i> <a href="/">${ _("Home") }</a> <span class="divider">/</span></li>
+  % for C in get_parents(category):
+  <li><a href="${ reverse_url('cms:category:view', C.id) }">${ C.name }</a> <span class="divider">/</span></li>
+  % endfor
+  <li class="activate">${ article.name }</li>
+</ul>
+
+<div class="article">
+  <h4>${ article.name }</h4>
+  <div class="article-summary">${ article.summary }</div>
+  <div class="article-body markdown">${ article.body_html }</div>
+</div>
+
+</%block>

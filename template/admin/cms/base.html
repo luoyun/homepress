@@ -1,0 +1,36 @@
+<%inherit file="../admin_base.html"/>
+
+<%block name="main">
+<div class="container-fluid">
+  <div class="row-fluid">
+
+	<div class="span2">
+
+	  <div class="decorate-box">
+		<div class="head">
+		  <h4>${ _("Category") }</h4>
+		</div>
+		<div class="body">
+		  <ul class="nav nav-list">
+			% for item in categories:
+			<li><a href="${ reverse_url('admin:cms:category:view', item.id) }">${ item.name }</a></li>
+			<ul class="nav nav-list">
+			  % for child in item.children:
+			  <li><a href="${ reverse_url('admin:cms:category:view', child.id) }">${ child.name }</a></li>
+			  % endfor
+			</ul>
+			% endfor
+		  </ul>
+		</div>
+	  </div>
+
+	  <p><a href="${ reverse_url('admin:cms:category') }">${ _("Category Management") }</a></p>
+
+	</div>
+
+	<div class="span10">
+	  <%block name="mainbody"/>
+	</div>
+  </div>
+</div>
+</%block>

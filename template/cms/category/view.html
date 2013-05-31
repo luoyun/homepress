@@ -1,0 +1,30 @@
+<%inherit file="../base.html"/>
+
+<%block name="mainbody">
+
+<ul class="breadcrumb">
+  <li><i class="icon-home"></i> <a href="/">${ _("Home") }</a> <span class="divider">/</span></li>
+  % for C in get_parents(category, include_myself=False):
+  <li><a href="${ reverse_url('cms:category:view', C.id) }">${ C.name }</a> <span class="divider">/</span></li>
+  % endfor
+  <li class="activate">${ category.name }</li>
+</ul>
+
+% if articles:
+% for A in articles:
+<div class="article ">
+  <h4><a href="${ reverse_url('cms:article:view', A.id) }">${ A.name }</a></h4>
+  <p>${ _("Last updated: ") } ${ ftime(A.updated) }, ${ _("by") } ${ A.user.username } </p>
+  <div class="article-summary">${ A.summary }</div>
+  <p><a class="btn btn-mini btn-info" href="${ reverse_url('cms:article:view', A.id) }">${ _("Read More ...") }</a></p>
+</div>
+% endfor
+% else:
+<div class="hero-unit">
+  <h3>${ _("No articles !") }</h3>
+  <p>${ _("This category have not any articles yet.") }</p>
+</div>
+% endif
+
+
+</%block>

@@ -1,0 +1,32 @@
+<%inherit file="/base.html"/>
+
+<%block name="main">
+
+<div id="cms-container" class="row-fluid">
+
+  <div class="span3 cms-layout-sidebar decorate-box">
+	<div class="head">
+	  <h4>${ category.name }</h4>
+	</div>
+	<div class="body">
+	  % if category.children:
+	  <ul class="nav nav-list">
+		% for item in category.children:
+		<li><a href="${ reverse_url('cms:category:view', item.id) }">${ item.name }</a></li>
+		% endfor
+	  </ul>
+	  % else:
+	  % if category.summary:
+	  <p class="summary">${ category.summary }</p>
+	  % endif
+	  % endif
+	</div>
+  </div>
+
+  <div class="span9 cms-layout-main">
+	<%block name="mainbody" />
+  </div>
+
+</div>
+
+</%block>

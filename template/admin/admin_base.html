@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="${ static_url('bootstrap/css/bootstrap.min.css') }" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="${ static_url('bootstrap/css/bootstrap-responsive.min.css') }" type="text/css">
+    <link rel="stylesheet" href="${ theme_url('css/site.css') }">
+    <%block name="head"/>
+    <title>${ _(title) } - ${ _("LuoYun.CO") }</title>
+  </head>
+
+  <body>
+    <script type="text/javascript" src="${ static_url('js/json2.js') }"></script>
+    <script type="text/javascript" src="${ static_url('js/jquery.js') }"></script>
+    <script type="text/javascript" src="${ static_url('bootstrap/js/bootstrap.min.js') }"></script>
+    <script type="text/javascript" src="${ theme_url('js/site.js') }"></script>
+
+    <div id="pager">
+      <div id="header">
+        <div class="navbar navbar-inverse">
+		  <div class="navbar-inner">
+            <a class="brand" href="/admin">${ _("Admin Console") }</a>
+			<ul class="nav">
+              <li><a href="/admin/site">${ _("Site") }</a></li>
+              <li><a href="/admin/cms">${ _("CMS") }</a></li>
+              <li><a href="/" target="_blank">${ _("Visit Site") }</a></li>
+			</ul>
+          </div>
+		</div>
+	  </div>
+
+      <div id="main" class="min-height600">
+		<%block name="main"/>
+	  </div>
+
+	  <div id="footer">
+		<div class="container-fluid">
+		  <ul class="inline text-center">
+			<li><a href="/about">${ _("About") }</a></li>
+			<li><a href="/contact">${ _("Contact") }</a></li>
+			<li><img src="${ theme_url('img/en_US.png') }" />
+			  <a href="http://en.luoyun.co">English</a></li>
+		  </ul>
+		  <p>${ _("Copyright") }&nbsp;&copy&nbsp;2011-2013
+			<a href="http://www.luoyun.co">LuoYun.CO</a>
+			<a href="http://www.miitbeian.gov.cn" target="_blank">ICP12005799-1</a>
+		  </p>
+		</div>
+	  </div>
+
+	  <script type="text/javascript">
+		$(function () {
+        $.scrollUp({
+        scrollText: '',
+        });
+		});
+	  </script>
+	</div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<%inherit file="/base.html"/>
+
+<%block name="main">
+% if article:
+<div class="site-article">${ article.body_html }</div>
+% else:
+<div class="hero-unit">
+  <p>${ _("Not found page for %s") % cur_language.name }</p>
+  % if available_article_list:
+  <p>${ _("the following are optional language: ") }</p>
+  <ul class="nav nav-list">
+	% for A in available_article_list:
+	<li><a href="/${ entry.slug }?language=${ A.language.codename }">${ A.language.name }</a></li>
+	% endfor
+  </ul>
+  % endif
+</div>
+% endif
+
+</%block>

@@ -1,0 +1,869 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-05-31 11:23+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Jian Lee <lijian@ylinux.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: app/registration/forms.py:12 app/account/forms.py:11 app/auth/forms.py:11
+msgid "password confirm failed"
+msgstr "密码不匹配"
+
+#: app/registration/forms.py:17 app/account/forms.py:15
+msgid "Email Address"
+msgstr "邮件地址"
+
+#: app/registration/forms.py:20
+msgid "Registration Policy"
+msgstr "注册条款"
+
+#: app/registration/forms.py:28 app/auth/forms.py:15
+#: template/registration/registration.html:9
+#: template/account/reset_password_email.html:4
+msgid "Username"
+msgstr "用户名"
+
+#: app/registration/forms.py:31 app/account/forms.py:21 app/auth/forms.py:16
+#: template/registration/registration.html:13
+msgid "Password"
+msgstr "密码"
+
+#: app/registration/forms.py:34 app/account/forms.py:23
+#: template/registration/registration.html:17
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#: app/registration/views.py:24 app/registration/views.py:61
+#: template/registration/apply.html:8
+msgid "Registration Apply"
+msgstr "注册申请"
+
+#: app/registration/views.py:50
+msgid "Complete the registration"
+msgstr "完成注册"
+
+#: app/registration/views.py:57
+#, python-format
+msgid "key \"%s\"is not exist."
+msgstr "key \"%s\" 不存在"
+
+#: app/registration/views.py:96
+#, python-format
+msgid "Email (%s) is alreay exist."
+msgstr "邮件地址 (%) 己经存在"
+
+#: app/registration/views.py:117
+msgid "Username is occupied."
+msgstr "用户被占用"
+
+#: app/registration/views.py:138
+msgid "Thanks for register LuoYun.CO"
+msgstr "非常感谢注册落云科技网站"
+
+#: app/home/views.py:25
+msgid "Please set the site article for entry \"home\" first."
+msgstr "请先为首页 (home) 设置内容"
+
+#: app/home/views.py:32
+msgid "Global Entry"
+msgstr "站点入口"
+
+#: app/home/views.py:59
+msgid "Not support your language."
+msgstr "不支持您的语言"
+
+#: app/cms/admin_views.py:33
+msgid "CMS Home"
+msgstr "CMS 主页"
+
+#: app/cms/admin_views.py:43
+msgid "Manager Category"
+msgstr "管理目录"
+
+#: app/cms/admin_views.py:56
+msgid "View Category"
+msgstr "查看目录"
+
+#: app/cms/admin_views.py:63 app/cms/views.py:46 app/site/admin_views.py:81
+#, python-format
+msgid "Can not find category %s"
+msgstr "没有找到目录 %s"
+
+#: app/cms/admin_views.py:85
+msgid "Add CMS Category"
+msgstr "新目录"
+
+#: app/cms/admin_views.py:119
+msgid "Edit CMS Category"
+msgstr "编辑目录"
+
+#: app/cms/admin_views.py:138 app/cms/admin_views.py:155
+#, python-format
+msgid "Can not find category %s."
+msgstr "没有找到目录 %s"
+
+#: app/cms/admin_views.py:219 app/cms/admin_views.py:265
+#: template/admin/cms/article/add.html:16
+#: template/admin/site/article_edit.html:16
+#: template/admin/site/article_add.html:16 template/admin/site/article.html:60
+msgid "New Article"
+msgstr "新文章"
+
+#: app/cms/admin_views.py:272 app/cms/admin_views.py:289 app/cms/views.py:66
+#: app/site/admin_views.py:91
+#, python-format
+msgid "Can not find article %s"
+msgstr "没有找到文章 %s"
+
+#: app/cms/models.py:34
+msgid "Normal"
+msgstr "通常"
+
+#: app/cms/models.py:35
+msgid "Deleted"
+msgstr "删除"
+
+#: app/cms/forms.py:11
+msgid "Parent Category"
+msgstr "父目录"
+
+#: app/cms/forms.py:13 app/cms/forms.py:27 app/site/forms.py:16
+#: app/site/forms.py:41 app/site/forms.py:48
+#: template/admin/cms/category.html:10
+#: template/admin/cms/category/view.html:30 template/admin/site/nav.html:21
+#: template/admin/site/article.html:26
+msgid "Name"
+msgstr "名字"
+
+#: app/cms/forms.py:16 app/cms/forms.py:30 app/site/forms.py:24
+#: app/site/forms.py:42 app/site/forms.py:49
+msgid "Summary"
+msgstr "简介"
+
+#: app/cms/forms.py:19
+msgid "Description"
+msgstr "详细描述"
+
+#: app/cms/forms.py:25 template/admin/cms/base.html:11
+msgid "Category"
+msgstr "目录"
+
+#: app/cms/forms.py:33 app/site/forms.py:43 app/site/forms.py:50
+msgid "Body"
+msgstr "正文"
+
+#: app/cms/views.py:53 app/cms/views.py:73
+#, python-format
+msgid "%s"
+msgstr ""
+
+#: app/account/views.py:35 app/account/views.py:42
+msgid "Reset my password."
+msgstr "重置密码"
+
+#: app/account/views.py:40
+msgid "Invalid key."
+msgstr "无效的 KEY"
+
+#: app/account/views.py:84
+msgid "This email does not register now."
+msgstr "此邮件地址还未注册"
+
+#: app/account/views.py:109
+msgid "Reset password for YLinux.org."
+msgstr "重置密码"
+
+#: app/auth/models.py:48
+#, python-format
+msgid "[Group(%s)]"
+msgstr "组 <%s>"
+
+#: app/auth/models.py:122
+#, python-format
+msgid "[UserPermission(%s)]"
+msgstr "权限 <%s>"
+
+#: app/auth/views.py:55 template/account/login.html:11 template/base.html:31
+msgid "Sign In"
+msgstr "登录"
+
+#: app/auth/views.py:70
+msgid "You have been lock."
+msgstr "您的帐号己被锁定"
+
+#: app/auth/views.py:79
+msgid "Wrong password."
+msgstr "密码错误"
+
+#: app/auth/views.py:81
+msgid "This user does not exist."
+msgstr "此用户不存在"
+
+#: app/site/admin_views.py:26
+msgid "Site Navigation Configure"
+msgstr "配置站点导航"
+
+#: app/site/admin_views.py:99
+msgid "Add Site Navigation"
+msgstr "新导航"
+
+#: app/site/admin_views.py:141
+msgid "Edit Site Navigation"
+msgstr "编辑导航"
+
+#: app/site/admin_views.py:148 app/site/admin_views.py:166
+#: app/site/admin_views.py:198 app/site/admin_views.py:316
+#: app/site/admin_views.py:327
+#, python-format
+msgid "No such entry: %s"
+msgstr "无此入口：%s"
+
+#: app/site/admin_views.py:265
+msgid "Site Entry Configure"
+msgstr "配置站点入口"
+
+#: app/site/admin_views.py:278
+msgid "Add Site Entry"
+msgstr "新入口"
+
+#: app/site/admin_views.py:295 app/site/admin_views.py:336
+msgid "Duplicated slug"
+msgstr "重复的入口值"
+
+#: app/site/admin_views.py:309
+msgid "Edit Site Entry"
+msgstr "编辑入口"
+
+#: app/site/admin_views.py:371
+msgid "Maybe there are articles exists."
+msgstr "是否还有文章存在"
+
+#: app/site/admin_views.py:379
+msgid "Global Article Configure"
+msgstr "配置全局文章"
+
+#: app/site/admin_views.py:434 template/admin/cms/category/view.html:20
+msgid "Add Article"
+msgstr "新文章"
+
+#: app/site/admin_views.py:467
+msgid "This entry was exists!"
+msgstr "此入口己存在"
+
+#: app/site/admin_views.py:480
+msgid "No such entry."
+msgstr "无此入口"
+
+#: app/site/admin_views.py:482
+msgid "No such language"
+msgstr "无此语言"
+
+#: app/site/admin_views.py:489
+msgid "Edit Site Article"
+msgstr "编辑文章"
+
+#: app/site/admin_views.py:496 app/site/admin_views.py:510
+#, python-format
+msgid "No such article: %s"
+msgstr "无此文章：%s"
+
+#: app/site/models.py:52
+msgid "Unknown"
+msgstr "未知"
+
+#: app/site/forms.py:14 app/site/forms.py:39 template/admin/site/nav.html:24
+#: template/admin/site/article.html:27
+msgid "Language"
+msgstr "语言"
+
+#: app/site/forms.py:19 template/admin/site/nav.html:25
+msgid "Type"
+msgstr "类型"
+
+#: app/site/forms.py:21
+msgid "Target"
+msgstr "目标"
+
+#: app/site/forms.py:27 template/admin/site/nav_add.html:26
+#: template/admin/site/nav_edit.html:26
+msgid "Open with new windows"
+msgstr "在新窗口中打开"
+
+#: app/site/forms.py:32 template/admin/site/entry.html:10
+msgid "Slug"
+msgstr ""
+
+#: app/site/forms.py:38 template/admin/site/base.html:15
+msgid "Site Entry"
+msgstr "站点入口"
+
+#: app/site/forms.py:44 app/site/forms.py:51
+#: template/admin/site/article_edit.html:28
+#: template/admin/site/article_add.html:34
+msgid "Is it visible ?"
+msgstr "是否可见？"
+
+#: lib/yweb/utils/ytime.py:17
+#, python-format
+msgid "%s years ago"
+msgstr "%s年前"
+
+#: lib/yweb/utils/ytime.py:20
+#, python-format
+msgid "%s months ago"
+msgstr "%s月前"
+
+#: lib/yweb/utils/ytime.py:23
+#, python-format
+msgid "%s days ago"
+msgstr "%s天前"
+
+#: lib/yweb/utils/ytime.py:26
+#, python-format
+msgid "%s hours ago"
+msgstr "%s小时前"
+
+#: lib/yweb/utils/ytime.py:29
+#, python-format
+msgid "%s minutes ago"
+msgstr "%s分钟前"
+
+#: lib/yweb/utils/ytime.py:32
+#, python-format
+msgid "%s seconds ago"
+msgstr "%s秒前"
+
+#: lib/yweb/utils/ytime.py:36
+msgid "just now"
+msgstr "刚刚"
+
+#: lib/yweb/handler.py:43 template/cms/category/view.html:6
+#: template/cms/article/view.html:6 template/base.html:58
+msgid "Home"
+msgstr "首页"
+
+#: lib/yweb/handler.py:241
+msgid "'_xsrf' argument missing"
+msgstr "_xsrf 参数缺失"
+
+#: lib/yweb/handler.py:243
+msgid "XSRF cookie does not match"
+msgstr "XSRF cookie 不匹配"
+
+#: template/admin/cms/category.html:11
+#: template/admin/cms/category/view.html:31 template/admin/site/nav.html:23
+msgid "Position"
+msgstr "位置"
+
+#: template/admin/cms/category.html:12
+#: template/admin/cms/category/view.html:32 template/admin/site/entry.html:13
+#: template/admin/site/article.html:28
+msgid "Created"
+msgstr "创建时间"
+
+#: template/admin/cms/category.html:13
+#: template/admin/cms/category/view.html:33 template/admin/site/entry.html:14
+#: template/admin/site/article.html:29
+msgid "Updated"
+msgstr "更新时间"
+
+#: template/admin/cms/category.html:37
+#: template/admin/cms/category/view.html:57 template/admin/site/nav.html:50
+#: template/admin/site/entry.html:43 template/admin/site/article.html:54
+msgid "Select All"
+msgstr "选择全部"
+
+#: template/admin/cms/category.html:38
+#: template/admin/cms/category/view.html:58 template/admin/site/nav.html:51
+#: template/admin/site/entry.html:44 template/admin/site/article.html:55
+msgid "Unselect All"
+msgstr "取消选择"
+
+#: template/admin/cms/category.html:41
+#: template/admin/cms/category/view.html:61 template/admin/site/nav.html:54
+#: template/admin/site/entry.html:47 template/admin/site/article.html:58
+msgid "Edit"
+msgstr "编辑"
+
+#: template/admin/cms/category.html:42 template/admin/cms/category.html:56
+#: template/admin/cms/category/view.html:62 template/admin/site/nav.html:55
+#: template/admin/site/nav.html:71 template/admin/site/entry.html:48
+#: template/admin/site/entry.html:62 template/admin/site/article.html:59
+#: template/admin/site/article.html:73
+msgid "Delete"
+msgstr "删除"
+
+#: template/admin/cms/category.html:43
+msgid "Add Category"
+msgstr "新目录"
+
+#: template/admin/cms/category.html:49 template/admin/site/nav.html:64
+#: template/admin/site/entry.html:55 template/admin/site/article.html:66
+msgid "Delete Confirm"
+msgstr "删除确认"
+
+#: template/admin/cms/category.html:52
+msgid "Are you sure to delete these categories ?"
+msgstr "您确定要删除这些目录吗？"
+
+#: template/admin/cms/category.html:55 template/admin/site/nav.html:70
+#: template/admin/site/entry.html:61 template/admin/site/article.html:72
+msgid "Close"
+msgstr "关闭"
+
+#: template/admin/cms/article/add.html:32
+#: template/admin/cms/article/edit.html:32
+#: template/admin/cms/add_category.html:24
+#: template/admin/cms/edit_category.html:24
+#: template/admin/site/entry_edit.html:12 template/admin/site/nav_add.html:28
+#: template/admin/site/entry_add.html:12
+#: template/admin/site/article_edit.html:30
+#: template/admin/site/nav_edit.html:29
+#: template/admin/site/article_add.html:36 template/registration/apply.html:18
+#: template/registration/registration.html:21 template/account/login.html:18
+#: template/account/reset_password_apply.html:15
+#: template/account/reset_password.html:18
+msgid "Submit"
+msgstr "提交"
+
+#: template/admin/cms/article/edit.html:16
+msgid "Edit Article"
+msgstr "编辑文章"
+
+#: template/admin/cms/add_category.html:8
+msgid "New Category"
+msgstr "新目录"
+
+#: template/admin/cms/edit_category.html:8
+msgid "Edit Category"
+msgstr "编辑目录"
+
+#: template/admin/cms/base.html:27
+msgid "Category Management"
+msgstr "目录管理"
+
+#: template/admin/admin_base.html:10 template/base.html:9
+#: template/base.html:79
+msgid "LuoYun.CO"
+msgstr "落云科技"
+
+#: template/admin/admin_base.html:23
+msgid "Admin Console"
+msgstr "管理后台"
+
+#: template/admin/admin_base.html:25
+msgid "Site"
+msgstr ""
+
+#: template/admin/admin_base.html:26
+msgid "CMS"
+msgstr ""
+
+#: template/admin/admin_base.html:27
+msgid "Visit Site"
+msgstr "访问站点"
+
+#: template/admin/admin_base.html:40
+msgid "About"
+msgstr "关于"
+
+#: template/admin/admin_base.html:41
+msgid "Contact"
+msgstr "联系"
+
+#: template/admin/admin_base.html:45 template/base.html:78
+msgid "Copyright"
+msgstr "版权"
+
+#: template/admin/site/entry_edit.html:8 template/admin/site/entry_add.html:8
+#: template/admin/site/nav_edit.html:8
+msgid "Edit Navigation"
+msgstr "编辑导航"
+
+#: template/admin/site/nav.html:5
+msgid "Navigation would be show in header of site."
+msgstr "导航会在页面头部显示"
+
+#: template/admin/site/nav.html:9 template/admin/site/article.html:8
+msgid "All"
+msgstr "所有"
+
+#: template/admin/site/nav.html:22
+msgid "URL"
+msgstr ""
+
+#: template/admin/site/nav.html:56
+msgid "Plus"
+msgstr "增加"
+
+#: template/admin/site/nav.html:57
+msgid "Minus"
+msgstr "减少"
+
+#: template/admin/site/nav.html:58 template/admin/site/entry.html:49
+msgid "New"
+msgstr "新建"
+
+#: template/admin/site/nav.html:67 template/admin/site/entry.html:58
+msgid "Are you sure to delete these items ?"
+msgstr "您确定要删除它们吗？"
+
+#: template/admin/site/nav_add.html:8
+msgid "New Navigation"
+msgstr "新导航"
+
+#: template/admin/site/entry.html:11
+msgid "View"
+msgstr "查看"
+
+#: template/admin/site/entry.html:12
+msgid "Articles"
+msgstr "文章"
+
+#: template/admin/site/base.html:10
+msgid "Site Configure"
+msgstr "配置站点"
+
+#: template/admin/site/base.html:14
+msgid "Navigation"
+msgstr "导航"
+
+#: template/admin/site/base.html:16
+msgid "Site Article"
+msgstr "站点文章"
+
+#: template/admin/site/article.html:16
+msgid "Articles In Entry: "
+msgstr "入口的文章："
+
+#: template/admin/site/article.html:25
+msgid "Entry"
+msgstr "入口"
+
+#: template/admin/site/article.html:69
+msgid "Are you sure to delete these entries ?"
+msgstr "您确定要删除它们吗？"
+
+#: template/registration/apply.html:13
+msgid "I accept the site rules"
+msgstr "我同意站点协议"
+
+#: template/registration/apply.html:14
+msgid "Registration Terms"
+msgstr "注册条款"
+
+#: template/registration/apply_complete.html:4
+#, python-format
+msgid "The email would be send to %s later, check your mail account please !"
+msgstr "邮件稍后会发送到 %s 用户，请检查您的邮箱！"
+
+#: template/registration/apply_email.html:1
+msgid "Welcome to register !"
+msgstr "欢迎注册！"
+
+#: template/registration/apply_email.html:2
+#, python-format
+msgid ""
+"Your email (%(email)s) have be used to register on our site, click the "
+"following link ( <a href"
+msgstr "此邮件（%(email)）己经注册"
+
+#: template/registration/registration.html:8
+msgid "Complete Registration"
+msgstr "完成注册"
+
+#: template/home/no_permission.html:6
+msgid "No Permissions"
+msgstr "无权限"
+
+#: template/home/no_permission.html:7
+msgid "Need permissions: "
+msgstr "需要权限："
+
+#: template/home/global_entry.html:8
+#, python-format
+msgid "Not found page for %s"
+msgstr "没有发现此页 %s"
+
+#: template/home/global_entry.html:10
+msgid "the following are optional language: "
+msgstr "有以下可选语言："
+
+#: template/cms/category/view.html:17
+msgid "Last updated: "
+msgstr "最后更新："
+
+#: template/cms/category/view.html:17
+msgid "by"
+msgstr "由"
+
+#: template/cms/category/view.html:19
+msgid "Read More ..."
+msgstr "阅读更多 ... ..."
+
+#: template/cms/category/view.html:24
+msgid "No articles !"
+msgstr "无文章！"
+
+#: template/cms/category/view.html:25
+msgid "This category have not any articles yet."
+msgstr "此目录还没有文章。"
+
+#: template/404.html:8 template/404.html:65
+msgid "Oops, that isn&rsquo;t right."
+msgstr "噢，出错了。"
+
+#: template/404.html:66
+msgid "You may have typed the URL incorrectly."
+msgstr "您访问的地址有误。"
+
+#: template/404.html:67
+msgid ""
+"Check to make sure you&rsquo;ve got the spelling, capitalization, etc. "
+"exactly right."
+msgstr "请检查地址"
+
+#: template/404.html:68
+msgid "No such page: "
+msgstr "无此页面："
+
+#: template/404.html:72
+msgid "Back to previous page"
+msgstr "回到上一页"
+
+#: template/account/index.html:5 template/base.html:34
+msgid "Welcome, "
+msgstr "欢迎回来，"
+
+#: template/account/login.html:24
+msgid "Forget Password ?"
+msgstr "忘记密码？"
+
+#: template/account/login.html:25
+msgid "If you forget your password, you can click"
+msgstr "如果您忘记了密码，您可以点击"
+
+#: template/account/login.html:26
+msgid "Reset My Password"
+msgstr "重置密码"
+
+#: template/account/login.html:27
+msgid "No Account Yet ?"
+msgstr "还没有帐户吗？"
+
+#: template/account/login.html:28
+msgid "If you have not account yet, you can join us by click"
+msgstr "如果您还没有帐户，欢迎加入我们"
+
+#: template/account/login.html:29 template/base.html:32
+msgid "Register"
+msgstr "注册"
+
+#: template/account/reset_password_apply.html:11
+msgid "Reset Password"
+msgstr "重置密码"
+
+#: template/account/reset_password_email.html:1
+msgid "Password Reset"
+msgstr "密码重置"
+
+#: template/account/reset_password_email.html:5
+msgid "Email"
+msgstr "邮件地址"
+
+#: template/account/reset_password_email.html:6
+msgid "Key"
+msgstr ""
+
+#: template/account/reset_password_email.html:9
+msgid "Click the following link to complete reset."
+msgstr "点击下面的链接完成密码重置"
+
+#: template/account/reset_password_apply_success.html:6
+msgid "Reset Password Success"
+msgstr "重置密码成功"
+
+#: template/account/reset_password_apply_success.html:7
+msgid "A email have send to you, check your inbox please."
+msgstr "一封邮件己经发送给您，请检查您的邮箱。"
+
+#: template/account/reset_password.html:11
+msgid "Complete Reset Password"
+msgstr "完成密码重置"
+
+#: template/base.html:35
+msgid "Logout"
+msgstr "退出"
+
+#: template/base.html:37
+msgid "Administration"
+msgstr "管理后台"
+
+#: template/base.html:44
+msgid "Cloud Computing For The Future"
+msgstr "面向未来的云计算"
+
+#: template/base.html:49
+msgid "Contact US: "
+msgstr "联系我们："
+
+#: template/base.html:75
+msgid "About US"
+msgstr "关于我们"
+
+#: template/base.html:76
+msgid "Contact US"
+msgstr "联系我们"
+
+#: wtforms/validators.py:51
+#, python-format
+msgid "Invalid field name '%s'."
+msgstr "无效的字段名称 '%s'."
+
+#: wtforms/validators.py:58
+#, python-format
+msgid "Field must be equal to %(other_name)s."
+msgstr "此值必须等于 %(other_name)s."
+
+#: wtforms/validators.py:90
+#, python-format
+msgid "Field must be at least %(min)d character long."
+msgid_plural "Field must be at least %(min)d characters long."
+msgstr[0] "此值至少要有 %(min)d 个字符."
+msgstr[1] "此值至少要有 %(min)d 个字符."
+
+#: wtforms/validators.py:93
+#, python-format
+msgid "Field cannot be longer than %(max)d character."
+msgid_plural "Field cannot be longer than %(max)d characters."
+msgstr[0] "此值不能大于 %(max)d 个字符"
+msgstr[1] "此值不能大于 %(max)d 个字符"
+
+#: wtforms/validators.py:96
+#, python-format
+msgid "Field must be between %(min)d and %(max)d characters long."
+msgstr "此值字符个数必须在 %(min)d 和 %(max)d 之间"
+
+#: wtforms/validators.py:131
+#, python-format
+msgid "Number must be greater than %(min)s."
+msgstr "此值必须大于 %(min)s"
+
+#: wtforms/validators.py:133
+#, python-format
+msgid "Number must be less than %(max)s."
+msgstr "此值必须小于 %(max)s"
+
+#: wtforms/validators.py:135
+#, python-format
+msgid "Number must be between %(min)s and %(max)s."
+msgstr "此值必须在 %(min)s 和 %(max)s 之间"
+
+#: wtforms/validators.py:171
+msgid "This field is required."
+msgstr "此值是必须的"
+
+#: wtforms/validators.py:199
+msgid "Invalid input."
+msgstr "无效的输入"
+
+#: wtforms/validators.py:218
+msgid "Invalid email address."
+msgstr "无效的邮件地址"
+
+#: wtforms/validators.py:235
+msgid "Invalid IP address."
+msgstr "无效的 IP 地址"
+
+#: wtforms/validators.py:253
+msgid "Invalid Mac address."
+msgstr "无效的 MAC 地址"
+
+#: wtforms/validators.py:278
+msgid "Invalid URL."
+msgstr "无效的 URL"
+
+#: wtforms/validators.py:296
+msgid "Invalid UUID."
+msgstr "无效的 UUID"
+
+#: wtforms/validators.py:323
+#, python-format
+msgid "Invalid value, must be one of: %(values)s."
+msgstr "无效的值，必须是这些值中的一个： %(values)s."
+
+#: wtforms/validators.py:350
+#, python-format
+msgid "Invalid value, can't be any of: %(values)s."
+msgstr "无效的值， 不能是这些值中的一个： %(values)s."
+
+#: wtforms/ext/appengine/fields.py:74 wtforms/ext/django/fields.py:90
+#: wtforms/ext/sqlalchemy/fields.py:122 wtforms/ext/sqlalchemy/fields.py:172
+#: wtforms/ext/sqlalchemy/fields.py:177 wtforms/fields/core.py:413
+msgid "Not a valid choice"
+msgstr "无效的选择"
+
+#: wtforms/ext/appengine/fields.py:93
+msgid "Not a valid list"
+msgstr "无效的列表"
+
+#: wtforms/ext/csrf/form.py:45
+msgid "Invalid CSRF Token"
+msgstr "无效的 CSRF 值"
+
+#: wtforms/ext/csrf/session.py:56
+msgid "CSRF token missing"
+msgstr "CSRF 值没有找到"
+
+#: wtforms/ext/csrf/session.py:64
+msgid "CSRF failed"
+msgstr "CSRF 失败"
+
+#: wtforms/ext/csrf/session.py:69
+msgid "CSRF token expired"
+msgstr "CSRF 值过期"
+
+#: wtforms/ext/dateutil/fields.py:48
+msgid "Please input a date/time value"
+msgstr "请输入一个 '日期／时间' 值"
+
+#: wtforms/ext/dateutil/fields.py:60
+msgid "Invalid date/time input"
+msgstr "无效的 '日期/时间' 值"
+
+#: wtforms/fields/core.py:406
+msgid "Invalid Choice: could not coerce"
+msgstr "无效的选择： 不能强制"
+
+#: wtforms/fields/core.py:439
+msgid "Invalid choice(s): one or more data inputs could not be coerced"
+msgstr "无效的选择： 输入不能被强制"
+
+#: wtforms/fields/core.py:446
+#, python-format
+msgid "'%(value)s' is not a valid choice for this field"
+msgstr "'%(value)s' 在这里是无效的选择"
+
+#: wtforms/fields/core.py:500
+msgid "Not a valid integer value"
+msgstr "不是一个有效整数值"
+
+#: wtforms/fields/core.py:546
+msgid "Not a valid decimal value"
+msgstr "不是一个有效的十进制整数值"
+
+#: wtforms/fields/core.py:572
+msgid "Not a valid float value"
+msgstr "不是一个有效的浮点数值"
