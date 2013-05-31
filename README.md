@@ -5,12 +5,12 @@ Homepress can help you to setup a web homepage like wordpress, but more simple.
 
 1. Framework
 
-   Python
-   Tornado
-   SQLAlchemy
-   Mako
-   WTForms
-   Markdown
+   - Python
+   - Tornado
+   - SQLAlchemy
+   - Mako
+   - WTForms
+   - Markdown
 
 2. Target
 
