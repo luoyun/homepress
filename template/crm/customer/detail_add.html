@@ -1,0 +1,26 @@
+<%inherit file="../crm_base.html"/>
+
+<%block name="submain">
+
+<div>
+  <form method="POST">${ xsrf_form_html() }
+	<fieldset>
+	  <legend>${ _("Add Detail To Customer: ") } ${ customer.name }</legend>
+
+	  ${ form.type.label } ${ form.type() }
+	  ${ form.html_errors(form.type.errors) }
+
+	  ${ form.data.label } ${ form.data() }
+	  ${ form.html_errors(form.data.errors) }
+
+	  ${ form.desc.label } ${ form.desc() }
+	  ${ form.html_errors(form.desc.errors) }
+
+	  <br>
+	  <button type="submit" class="btn">${ _("Submit") }</button>
+	</fieldset>
+  </form>
+
+</div>
+
+</%block>

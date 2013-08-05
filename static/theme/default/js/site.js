@@ -77,7 +77,8 @@
 })(jQuery);
 
 
-function binding_site_language_select() {
+function binding_site_language_select( current ) {
+	$('.site-language-select').val( current );
 	$('.site-language-select').change( function() {
 		var select = $(this).children('option:selected').val();
 		url = '/setlocale?language=' + select;

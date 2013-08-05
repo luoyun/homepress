@@ -1,0 +1,51 @@
+<%inherit file="../crm_base.html"/>
+
+<%block name="subhead">
+<link rel="stylesheet" type="text/css" href="${ static_url('markitup/skins/simple/style.css') }" />
+<link rel="stylesheet" type="text/css" href="${ static_url('markitup/sets/markdown/style.css') }" />
+</%block>
+
+<%block name="submain">
+
+<script type="text/javascript" src="${ static_url('markitup/jquery.markitup.js') }"></script>
+<script type="text/javascript" src="${ static_url('markitup/sets/markdown/set.js') }"></script>
+
+<div>
+  <form method="POST">${ xsrf_form_html() }
+	<fieldset>
+	  <legend>${ _("Add Interaction To Contact: ") } ${ contact.name }</legend>
+
+	  ${ form.type.label } ${ form.type() }
+	  ${ form.html_errors(form.type.errors) }
+
+	  ${ form.started.label } ${ form.started() }
+	  ${ form.html_errors(form.started.errors) }
+
+	  <p>${ _("e.g: 2013-07-24 13:30:00") }</p>
+
+	  ${ form.ended.label } ${ form.ended() }
+	  ${ form.html_errors(form.ended.errors) }
+
+	  <p>${ _("e.g: 2013-07-24 13:30:00") }</p>
+
+	  ${ form.summary.label } ${ form.summary() }
+	  ${ form.html_errors(form.summary.errors) }
+
+	  ${ form.description.label } ${ form.description() }
+	  ${ form.html_errors(form.description.errors) }
+
+	  <br>
+	  <button type="submit" class="btn">${ _("Submit") }</button>
+	</fieldset>
+  </form>
+
+</div>
+
+<script type="text/javascript" >
+   mySettings.previewParserPath = "/t/preview?markup_language=markdown&_xsrf=${ xsrf_cookie }";
+   $(document).ready(function() {
+      $("#description").markItUp(mySettings);
+   });
+</script>
+
+</%block>

@@ -1,5 +1,6 @@
 # coding: utf-8
 
+import logging
 import os, datetime, random, time
 from hashlib import sha1
 
@@ -21,7 +22,7 @@ class RegisterApply(RequestHandler):
 
     def get(self):
         form = RegistrationApplyForm(self)
-        d = { 'title': self.trans(_('Registration Apply')),
+        d = { 'title': _('Registration Apply'),
               'form': form }
         self.render("registration/apply.html", **d)
 
@@ -47,18 +48,18 @@ class Register(AccountRequestHandler):
 
         if key:
             form = RegistrationForm(self)
-            title = self.trans(_('Complete the registration'))
+            title = _('Complete the registration')
             template = "registration/registration.html"
             # check key
             x=self.db.query(RegistrationApply).filter_by(key=key).first()
             if x:
                 self.exist_key = x
             else:
-                E.append(self.trans(_('key "%s"is not exist.')) % key)
+                E.append( _('key "%s"is not exist.') % key)
 
         else:
             form = RegistrationApplyForm(self)
-            title = self.trans(_('Registration Apply'))
+            title = _('Registration Apply')
             template = "registration/apply.html"
 
         d = { 'form': form, 'title': title, 'E': E }
@@ -92,7 +93,7 @@ class Register(AccountRequestHandler):
             if K:
                 K.key = sha1(str(random.random())).hexdigest()
             elif U:
-                form.email.errors.append( self.trans(_('Email (%s) is alreay exist.')) % form.email.data )
+                form.email.errors.append( _('Email (%s) is alreay exist.') % form.email.data )
                 break
             else:
                 K = RegistrationApply(email = form.email.data)
@@ -100,6 +101,7 @@ class Register(AccountRequestHandler):
 
             self.db.commit()
             # TODO: sendmail
+            logging.info('prepare to sendmail to %s' % K.email)
             self.sendmail(K)
             return self.render('registration/apply_complete.html', **self.d)
 
@@ -113,7 +115,7 @@ class Register(AccountRequestHandler):
         if form.validate():
             old = self.db.query(User).filter_by(username=form.username.data).count()
             if old:
-                form.username.errors.append(self.trans(_('Username is occupied.')))
+                form.username.errors.append( _('Username is occupied.'))
             else:
                 encpass = enc_login_passwd(form.password.data)
                 new = User( username = form.username.data,

@@ -1,0 +1,73 @@
+<%inherit file="../crm_base.html"/>
+
+<%block name="subnav">
+<li><a href="${ reverse_url('crm:contact') }">${ _("Customer") }</a> <span class="divider">/</span></li>
+<li><a href="${ reverse_url('crm:contact:view') }?id=${ contact.id }">${ contact.name }</a></li>
+</%block>
+
+<%block name="submain">
+
+<div class="contact-view">
+
+  <p>
+	<a class="btn" href="${ reverse_url('crm:contact:edit') }?id=${ contact.id }"><i class="icon-edit"></i> ${ _("Edit Contact") }</a>
+  </p>
+
+  <table class="table table-bordered">
+	<tbody>
+	  <tr>
+		<th>${ _("Name") }</th>
+		<td>${ contact.name }
+		  ${ contact.nickname }</td>
+	  </tr>
+	  <tr>
+		<th>${ _("Customer") }</th>
+		<td><a href="${ reverse_url('crm:customer:view') }?id=${ contact.customer_id }">${ contact.customer.name }</a></td>
+	  </tr>
+	  <tr>
+		<th>${ _("Contact Detail") }</th>
+		<td>
+		  <ul>
+			% for detail in contact.details:
+			<li>${ detail.type_str } : ${ detail.data } ${ detail.desc } <a href="${ reverse_url('crm:contact:detail:delete') }?id=${ detail.id }&contact_id=${ contact.id }"><i class="icon-trash"></i></a></li>
+			% endfor
+		  </ul>
+		  <p><a class="btn" href="${ reverse_url('crm:contact:detail:add') }?contact_id=${ contact.id }"><i class="icon-plus"></i> ${ _("Add") }</a></p>
+		</td>
+	  </tr>
+	  <tr>
+		<th>${ _("User") }</th>
+		<td>${ contact.user.username }</td>
+	  </tr>
+	</tbody>
+  </table>
+
+  <h3>${ _("Description") }</h3>
+  <div>${ contact.description_html }</div>
+
+  <h3>${ _("Interaction") }</h3>
+  <p><a class="btn" href="${ reverse_url('crm:contact:interaction:add') }?contact_id=${ contact.id }"><i class="icon-plus"></i> ${ _("Add Interaction") }</a></p>
+  % if contact.interactions:
+  <table class="table table-bordered">
+	<thead>
+	  <tr>
+		<th>${ _("Summary") }</th>
+		<th>${ _("Started") }</th>
+		<th>${ _("Ended") }</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  % for I in contact.interactions:
+	  <tr>
+		<td><a href="${ reverse_url('crm:contact:interaction:view') }?id=${ I.id }">${ I.summary }</a></td>
+		<td>${ ftime(I.started) } ( ${ htime(I.started) } )</td>
+		<td>${ htime(I.ended) } ( ${ htime(I.ended) } )</td>
+	  </tr>
+	  % endfor
+	</tbody>
+  </table>
+  % endif
+
+</div>
+
+</%block>

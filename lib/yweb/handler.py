@@ -24,7 +24,6 @@ from app.auth.models import User
 from yweb.contrib.session.models import Session
 
 from yweb import uimodule
-from yweb.orm import db
 from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
 
 
@@ -42,6 +41,13 @@ class RequestHandler(RequestHandler):
 
     title = _('Home')
     template_path = None
+
+    def __init__(self, application, request, **kwargs):
+
+        self.prepare_kwargs = {}
+
+        super(RequestHandler, self).__init__(application, request, **kwargs)
+
 
     def render(self, template_name=None,
                return_string=False, **kwargs):
@@ -71,6 +77,8 @@ class RequestHandler(RequestHandler):
             static_url=self.static_url,
             theme_url=self.theme_url,
 
+            LANGUAGES=self.settings['LANGUAGES'],
+
             #method
             htime = htime,
             ftime = ftime,
@@ -80,10 +88,12 @@ class RequestHandler(RequestHandler):
 
             title = self.title,
             site_entries = site_entries,
-            supported_languages = self.application.supported_languages_list,
         )
 
         args.update(kwargs)
+
+        # We can set keyword with initialize() or prepare()
+        args.update(self.prepare_kwargs)
 
         # We can define keyword in views with initialize()
         if hasattr(self, 'view_kwargs'):
@@ -117,14 +127,10 @@ class RequestHandler(RequestHandler):
         self.finish(html)
 
 
-    @property
-    def db(self):
-        return db
-
     def get_current_user(self):
 
         try:
-            session = db.query(Session).filter_by(
+            session = self.db.query(Session).filter_by(
                 session_key = self.get_secure_cookie('session_key')).one()
         except MultipleResultsFound:
             logging.error( 'session: MultipleResultsFound, %s' %
@@ -148,7 +154,7 @@ class RequestHandler(RequestHandler):
         except:
             session_dict = {}
 
-        user = db.query(User).get(
+        user = self.db.query(User).get(
             session_dict.get('user_id', 0) )
 
         if user:
@@ -265,6 +271,12 @@ class RequestHandler(RequestHandler):
                 return os.path.join(path, f)
         return None
 
+    @property
+    def db(self):
+        return self.application.dbsession()
+
+    def on_finish(self):
+        self.application.dbsession.remove()
 
 
 import functools, urlparse, urllib

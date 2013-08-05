@@ -24,10 +24,11 @@ THEME_URL = "/static/themes/%s/" % THEME
 
 I18N_PATH = os.path.join(siteroot, "locale")
 
-LANGUAGES = (
-    ('zh_CN', u"\u4e2d\u6587(\u7b80\u4f53)"),
-    ('en_US', 'English'),
-)
+LANGUAGES = {
+    "en_US": u"English (US)",
+    "zh_CN": u"\u4e2d\u6587(\u7b80\u4f53)",
+    }
+
 
 app = [ 'yweb.contrib.session',
         'app.auth',
@@ -36,7 +37,8 @@ app = [ 'yweb.contrib.session',
         'app.account',
         'app.home',
         'app.site',
-        'app.cms', ]
+        'app.cms',
+        'app.crm', ]
 
 default_permission = [
     # ( 'codename', 'name' )

@@ -1,0 +1,41 @@
+<%inherit file="../crm_base.html"/>
+
+<%block name="subnav">
+<li><a href="${ reverse_url('crm:contact') }">${ _("Customer") }</a> <span class="divider">/</span></li>
+<li><a href="${ reverse_url('crm:contact:view') }?id=${ interaction.contact_id }">${ interaction.contact.name }</a> <span class="divider">/</span></li>
+<li><a href="${ reverse_url('crm:contact:interaction:view') }?id=${ interaction.id }">${ interaction.summary }</a></li>
+</%block>
+
+<%block name="submain">
+
+<div class="contact-interaction-view">
+
+  <p>
+	<a class="btn" href="${ reverse_url('crm:contact:interaction:edit') }?id=${ interaction.id }"><i class="icon-edit"></i> ${ _("Edit Interaction") }</a>
+  </p>
+
+  <table class="table table-bordered">
+	<tbody>
+	  <tr>
+		<th>${ _("Contact") }</th>
+		<td><a href="${ reverse_url('crm:contact:view') }?id=${ interaction.contact_id }">${ interaction.contact.name }</a></td>
+	  </tr>
+	  <tr>
+		<th>${ _("Started Date") }</th>
+		<td>${ ftime(interaction.started) }</td>
+	  </tr>
+	  <tr>
+		<th>${ _("Ended Date") }</th>
+		<td>${ ftime(interaction.ended) }</td>
+	  </tr>
+	</tbody>
+  </table>
+
+  <h3>${ interaction.summary }</h3>
+
+  <div>${ interaction.description_html }</div>
+
+
+</div>
+
+</%block>

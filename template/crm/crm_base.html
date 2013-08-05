@@ -1,0 +1,42 @@
+<%inherit file="/base.html"/>
+
+<%block name="head">
+<link rel="stylesheet" type="text/css" href="${ theme_url('css/crm.css') }" />
+<%block name="subhead"/>
+</%block>
+
+<%block name="main">
+
+<div id="crm-container">
+
+  <ul class="breadcrumb">
+	<li><i class="icon-home"></i> <a href="${ reverse_url('crm') }">${ _("Start Home") }</a> <span class="divider">/</span></li>
+	<%block name="subnav"/>
+  </ul>
+
+  <div class="row-fluid">
+
+	<div class="span3">
+	  <div class="well">
+		${ _("Simple CRM") }
+	  </div>
+
+	  <ul class="nav nav-list">
+		<li><a href="${ reverse_url('crm') }"><i class="icon-home"></i> ${ _("Start Home") }</a></li>
+		<li><a href="${ reverse_url('crm:customer') }"><i class="icon-group"></i> ${ _("Customers") }</a></li>
+		<li><a href="${ reverse_url('crm:contact') }"><i class="icon-envelope-alt"></i> ${ _("Contacts") }</a></li>
+	  </ul>
+
+	  <br>
+	  <p><a class="btn btn-primary" href="${ reverse_url('crm:customer:add') }">${ _("New Customer") }</a></p>
+
+	</div>
+
+	<div class="span9 crm-layout-main">
+	  <%block name="submain" />
+	</div>
+
+  </div>
+</div>
+
+</%block>

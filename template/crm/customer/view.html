@@ -1,0 +1,57 @@
+<%inherit file="../crm_base.html"/>
+
+<%block name="subnav">
+<li><a href="${ reverse_url('crm:customer') }">${ _("Customer") }</a> <span class="divider">/</span></li>
+<li><a href="${ reverse_url('crm:customer:view') }?id=${ customer.id }">${ customer.name }</a></li>
+</%block>
+
+<%block name="submain">
+
+<div class="customer-view">
+
+  <p>
+	<a class="btn" href="${ reverse_url('crm:customer:edit') }?id=${ customer.id }"><i class="icon-edit"></i> ${ _("Edit Customer") }</a>
+  </p>
+
+  <table class="table table-bordered">
+	<tbody>
+	  <tr>
+		<th>${ _("Name") }</th>
+		<td><a href="${ reverse_url('crm:customer:view') }?id=${ customer.id }">${ customer.name }</a></td>
+	  </tr>
+	  <tr>
+		<th>${ _("User") }</th>
+		<td>${ customer.user.username }</td>
+	  </tr>
+	  <tr>
+		<th>${ _("Contact Detail") }</th>
+		<td>
+		  <ul>
+			% for detail in customer.details:
+			<li>${ detail.type_str } : ${ detail.data } ${ detail.desc }</li>
+			% endfor
+		  </ul>
+		  <p><a class="btn" href="${ reverse_url('crm:customer:detail:add') }?customer_id=${ customer.id }"><i class="icon-plus"></i> ${ _("Add") }</a></p>
+		</td>
+	  </tr>
+	  <tr>
+		<th>${ _("Contacts") }</th>
+		<td>
+		  <ul>
+			% for contact in customer.contacts:
+			<li><a href="${ reverse_url('crm:contact:view') }?id=${ contact.id }">${ contact.name }</a></li>
+			% endfor
+		  </ul>
+		  <p><a class="btn" href="${ reverse_url('crm:contact:add') }?customer_id=${ customer.id }"><i class="icon-plus"></i> ${ _("Add Contact") }</a></p>
+		</td>
+	  </tr>
+	</tbody>
+  </table>
+
+
+  <h3>${ _("Description") }</h3>
+  <div>${ customer.description_html }</div>
+
+</div>
+
+</%block>

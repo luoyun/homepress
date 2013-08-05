@@ -15,8 +15,13 @@ from .models import SiteNav, SiteEntry, SiteArticle
 from .forms import SiteNavForm, SiteEntryForm, ArticleForm, \
     ArticleEditForm
 
+import settings
+
+
 
 class Index(RequestHandler):
+
+    @has_permission('admin')
     def get(self):
         self.render('admin/site/index.html')
 
@@ -28,26 +33,22 @@ class NavIndex(RequestHandler):
     @has_permission('admin')
     def get(self):
 
-        supported_languages = self.application.supported_languages
-
-        cur_locale = self.get_argument(
-            'language', self.locale.code )
+        cur_locale = self.get_argument('language', self.locale.code)
 
         navs = self.db.query(SiteNav).order_by( SiteNav.position )
 
-        if cur_locale in supported_languages:
+        if cur_locale in settings.LANGUAGES:
 
-            cur_language = self.db.query(Language).filter_by(
+            L = self.db.query(Language).filter_by(
                 codename = cur_locale ).first()
 
-            if cur_language:
-                navs = navs.filter_by( language_id = cur_language.id )
+            if L:
+                navs = navs.filter_by( language_id = L.id )
 
-        d = { 'languages': supported_languages.values(),
-              'cur_locale': cur_locale,
-              'navs': navs }
+        d = { 'cur_locale': cur_locale, 'navs': navs }
 
         self.render('admin/site/nav.html', **d)
+
 
 
 class NavRequestHandler(RequestHandler):
@@ -56,8 +57,13 @@ class NavRequestHandler(RequestHandler):
     def prepare(self):
 
         self.language_list = []
-        for L in self.application.supported_languages_list:
-            self.language_list.append( (str(L.id), L.name) )
+
+        for codename in settings.LANGUAGES:
+            L = self.db.query(Language).filter_by(
+                codename = codename).first()
+            if L:
+                self.language_list.append( (str(L.id), L.name) )
+
 
     # TODO:
     def get_entry_url(self, form):
@@ -392,13 +398,13 @@ class ArticleIndex(RequestHandler):
             d = { 'entry': E }
 
         else:
-            supported_languages = self.application.supported_languages
+            languages = settings.LANGUAGES
 
             cur_locale = self.get_argument(
                 'language', self.locale.code )
 
 
-            if cur_locale in supported_languages:
+            if cur_locale in languages:
 
                 cur_language = self.db.query(Language).filter_by(
                     codename = cur_locale ).first()
@@ -406,7 +412,7 @@ class ArticleIndex(RequestHandler):
                 if cur_language:
                     articles = articles.filter_by( language_id = cur_language.id )
 
-            d = { 'languages': supported_languages.values(),
+            d = { 'languages': languages,
                   'cur_locale': cur_locale }
 
         d['articles'] = articles
@@ -425,8 +431,12 @@ class ArticleRequestHandler(RequestHandler):
             self.entries_list.append( (str(E.id), E.slug) )
 
         self.language_list = []
-        for L in self.application.supported_languages_list:
-            self.language_list.append( (str(L.id), L.name) )
+        for codename in settings.LANGUAGES:
+            L = self.db.query(Language).filter_by(
+                codename = codename).first()
+            if L:
+                self.language_list.append( (str(L.id), L.name) )
+
 
 
 class ArticleAdd(ArticleRequestHandler):

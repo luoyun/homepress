@@ -1,0 +1,37 @@
+<%inherit file="../crm_base.html"/>
+
+<%block name="subhead">
+<link rel="stylesheet" type="text/css" href="${ static_url('markitup/skins/simple/style.css') }" />
+<link rel="stylesheet" type="text/css" href="${ static_url('markitup/sets/markdown/style.css') }" />
+</%block>
+
+<%block name="submain">
+
+<script type="text/javascript" src="${ static_url('markitup/jquery.markitup.js') }"></script>
+<script type="text/javascript" src="${ static_url('markitup/sets/markdown/set.js') }"></script>
+
+<div>
+  <form method="POST">${ xsrf_form_html() }
+	<fieldset>
+	  <legend>${ _("Edit ") } ${ customer.name }</legend>
+	  ${ form.name.label } ${ form.name() }
+	  ${ form.html_errors(form.name.errors) }
+
+	  ${ form.description.label } ${ form.description() }
+	  ${ form.html_errors(form.description.errors) }
+	  <br>
+
+	  <button type="submit" class="btn">${ _("Submit") }</button>
+	</fieldset>
+  </form>
+
+</div>
+
+<script type="text/javascript" >
+   mySettings.previewParserPath = "/t/preview?markup_language=markdown&_xsrf=${ xsrf_cookie }";
+   $(document).ready(function() {
+      $("#description").markItUp(mySettings);
+   });
+</script>
+
+</%block>

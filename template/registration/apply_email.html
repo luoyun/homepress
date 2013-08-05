@@ -1,2 +1,4 @@
 <h1>${ _("Welcome to register !") }</h1>
-<p>${ _("Your email (%(email)s) have be used to register on our site, click the following link ( <a href"%(url)s">%(url)s</a> ) to complete the register please.") % {"email": APPLY.email, "url": REGISTER_URL}}</p>
+<p>${ _("Your email have be used to register on our site, click the following link to complete the register please.") }</p>
+<p>${ _("Email: ") } ${ APPLY.email }</p>
+<p>${ _("URL: ") } <a href="${ REGISTER_URL }">${ REGISTER_URL }</a></p>

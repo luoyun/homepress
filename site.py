@@ -16,7 +16,7 @@ __builtin__.__dict__['_'] = lambda s: s
 import tornado.ioloop
 import tornado.web
 
-from yweb.orm import db
+from yweb import orm
 from yweb.handler import NotFoundHandler
 
 import app.home.views as home_views
@@ -64,43 +64,15 @@ tornado_settings = {
 
 class Application(tornado.web.Application):
 
-    _supported_languages = {}
-    _supported_languages_list = None
-
     def __init__(self):
 
         # SQLAlchemy connect
-        self.db = db
+        self.dbsession = orm.create_session()
+
         site_handlers = get_handlers()
         tornado.web.Application.__init__(self, site_handlers, **tornado_settings)
 
-    @property
-    def supported_languages(self):
-        if not self._supported_languages:
-            self._supported_languages = self.get_supported_languages()
 
-        return self._supported_languages
-
-    @property
-    def supported_languages_list(self):
-        if not self._supported_languages_list:
-            self._supported_languages_list = self.get_supported_languages().values()
-
-        return self._supported_languages_list
-
-
-    def get_supported_languages(self):
-
-        supported_languages = {}
-
-        from app.language.models import Language
-        for codename, x in self.settings["LANGUAGES"]:
-            L = self.db.query(Language).filter_by(
-                codename = codename ).first()
-            if not L: continue
-            supported_languages[codename] = L
-
-        return supported_languages
 
 def main():
     reload(sys)
@@ -119,7 +91,7 @@ def main():
 #    application.listen(options.port, xheaders=True)
 
     from tornado.httpserver import HTTPServer
-    http_server = HTTPServer(application)
+    http_server = HTTPServer(application, xheaders=True)
     http_server.bind(options.port, '127.0.0.1')
     http_server.start(num_processes=0)
 

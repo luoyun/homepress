@@ -1,0 +1,34 @@
+<%inherit file="../crm_base.html"/>
+
+<%block name="subnav">
+<li><a href="${ reverse_url('crm:customer') }">${ _("Customer") }</a></li>
+</%block>
+
+<%block name="submain">
+
+% if customer_list:
+<div class="customer-list">
+  <table class="table">
+	<thead>
+	  <tr>
+		<th>${ _("Name") }</th>
+		<th>${ _("User") }</th>
+	  </tr>
+	</thead>
+	<tbody>
+	  % for customer in customer_list:
+	  <tr>
+		<td><a href="${ reverse_url('crm:customer:view') }?id=${ customer.id }">${ customer.name }</a></td>
+		<td>${ customer.user.username }</td>
+	  </tr>
+	  % endfor
+	</tbody>
+  </table>
+</div>
+% else:
+<div class="hero-unit">
+  ${ _("No customers yet.") }
+</div>
+% endif
+
+</%block>
